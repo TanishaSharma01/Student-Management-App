@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<main>
+    <section>
+        <form [formGroup]="myForm" (submit)="onSubmit(myForm)">
+            <div>
+                <h3 class="text-center">Find Result</h3>
+            </div>
+            <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Result not found! </strong> Invalid roll No. and D.O.B
+                <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="mb-3">
+                <label for="rollNo" class="form-label">Roll No</label>
+                <input type="number" title="Roll no. can only be between 1-10000" placeholder="Enter Roll no." class="form-control" id="rollNo" name="rollNo" formControlName="rollNo"
+                min=1 max=10000>
+                <span style="color:red;" *ngIf="rollVal && rollVal.invalid && rollVal.touched">Please Enter a valid Roll Number</span>
+            </div>
+            <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                    formControlName="dateOfBirth" min="2000-01-01" max="2018-12-31">
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button [disabled]="myForm.invalid" type="submit"
+                    class="btn btn-success py-2 px-5 fw-medium d-flex justify-content-center align-items-center">Search
+                    Result</button>
+            </div>
+
+        </form>
+    </section>
+    <app-result-detail *ngIf="result!=null" [resultData]="result"></app-result-detail>
+
+</main>

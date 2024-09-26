@@ -1,0 +1,46 @@
+<main>
+    <section>
+        <form *ngIf="loginType==''">
+            <div>
+                <h1>Login as</h1>
+            </div>
+            <div class="loginTypebtn">
+                <button class="btn btn-info pt-2 px-3" (click)="handleLoginType('student')">
+                    STUDENT
+                </button>
+                <button class="btn btn-info pt-2 px-3" (click)="handleLoginType('teacher')">
+                    TEACHER
+                </button>
+            </div>
+        </form>
+
+        <form *ngIf="loginType=='student' || loginType=='teacher'" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+            <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Oops! </strong>Please enter valid credentials
+                <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div>
+                <h3 class="text-center">{{loginType | uppercase}} LOGIN</h3>
+            </div>
+
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" title="Username can only be alpha-numeric, length 5-20" placeholder="Enter username" class="form-control" id="username" name="username" formControlName="username">
+                <span style="color:red;" *ngIf="userVal && userVal.invalid && userVal.touched">Please enter a valid username</span>
+            </div>
+
+            <div class="mb-2">
+                <label for="score" class="form-label">Password</label>
+                <input type="password" title="Password can only be alpha-numeric, length 5-20" placeholder="Enter password" class="form-control" id="password" name="password" formControlName="password">
+                <span style="color:red;" *ngIf="passVal && passVal.invalid && passVal.touched">Please enter a valid password</span>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button [disabled]="myForm.invalid" type="submit"
+                    class="btn btn-success py-2 px-5 fw-medium d-flex justify-content-center align-items-center">Log
+                    in</button>
+            </div>
+        </form>
+    </section>
+</main>

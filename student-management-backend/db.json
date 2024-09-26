@@ -1,0 +1,22 @@
+{"students": [
+    {
+      "rollNo": 99999,
+      "studentName": "student test 1",
+      "dateOfBirth": "1111-01-01",
+      "score": 73,
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "username": "teach",
+      "password": "teach",
+      "role": "teacher"
+    },
+    {
+      "username": "stud1",
+      "password": "stud1",
+      "role": "student"
+    }
+  ]
+}

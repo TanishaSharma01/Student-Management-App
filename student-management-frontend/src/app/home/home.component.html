@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<main class="py-5">
+    <section class="">
+        <div class="d-flex justify-content-end">
+            <a routerLink="/new"><button class="btn btn-success py-2 px-5 fw-medium">Add Result</button></a>
+        </div>
+        <div>
+            <p style="font-weight: bold;">Total students: {{results.length || 0}}</p>
+        </div>
+        <div *ngIf="alert" class="alert alert-success" role="alert">
+            <strong>Success! </strong>Data Deleted Successfully
+            <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="mt-4">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col">Roll No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of results">
+                        <td>{{item.rollNo}}</td>
+                        <td>{{item.studentName}}</td>
+                        <td>{{item.dateOfBirth | date}}</td>
+                        <td>{{item.score}}</td>
+                        <td class="d-flex flex-row justify-content-around">
+                            <a routerLink="/edit/{{item.rollNo}}">
+                                <button class="btn bg-success">
+                                    <img src="../../assets/edit.png" alt="edit" class="actionBtn">
+                                </button>
+                            </a>
+                            <button class="btn bg-danger" (click)="deleteResult(item.rollNo)">
+                                <img src="../../assets/delete.png" alt="delete" class="actionBtn">
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>

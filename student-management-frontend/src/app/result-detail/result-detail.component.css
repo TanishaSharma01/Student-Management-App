@@ -1,0 +1,38 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+section {
+  background-color: #eaf4f4 !important;
+  width: 100%;
+  padding: 50px 0;
+}
+.listDetailCard {
+  margin: auto;
+  max-width: 500px;
+  border-radius: 10px;
+}
+.listDetailCard{
+  font-weight: bold;
+}
+.cardTitle {
+  text-align: center;
+  background-color: rgb(36, 65, 255);
+  color: white;
+  padding: 5px;
+}
+.listItem {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 2px 5px;
+}
+.listItem:nth-child(2n) {
+  background-color: rgb(155, 228, 255);
+}
+.listItem:nth-child(2n-1) {
+  background-color: rgb(184, 246, 255);
+}

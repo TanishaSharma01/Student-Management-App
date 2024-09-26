@@ -1,0 +1,23 @@
+.navbarWraper {
+  background-color: #003566;
+}
+.navbar {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #003566;
+}
+.navbar header {
+  color: white;
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+}
+.actionBtn {
+  width: 20px;
+  height: 20px;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
